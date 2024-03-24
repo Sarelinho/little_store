@@ -1,0 +1,27 @@
+/* styles.css */
+
+.app {
+  text-align: center;
+  
+}
+
+.product {
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product h2 {
+  color: #333;
+}
+
+.product p {
+  color: #666;
+}
