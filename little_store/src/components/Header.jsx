@@ -5,13 +5,14 @@ import '/src/Style/Header.css';
 const Header = () => {
     return (
         <header>
-            <nav>
-                <ul>
-                    <li><NavLink to="/">חנות</NavLink></li>
-                    <li><NavLink to="/cart">עגלת קניות</NavLink></li>
-                    <li><NavLink to="/admin">כניסה למנהל</NavLink></li>
-                </ul>
-            </nav>
+                
+                    <li className='Admin'><NavLink to="/admin">כניסה למנהל</NavLink></li>
+                    <div className='shopButton'>
+                    <li className='Shop'><NavLink to="/">חנות</NavLink></li>
+                    <li className='Cart'><NavLink to="/cart">עגלת קניות</NavLink></li>
+          
+                    </div>
+                   
         </header>
     );
 }

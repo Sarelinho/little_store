@@ -28,12 +28,15 @@ body {
   align-items: center;
 }
 
+.product-container {
+  width: 200px; /* או גודל מתאים לתמונה שלך */
+}
+
 .image-container {
   position: relative;
   width: 200px; /* או גודל מתאים לתמונה שלך */
   height: 200px; /* אורך קבוע של תמונה */
-  margin-bottom: 10px;
-  
+  margin-bottom: 10px; 
 }
 
 .image-container img {

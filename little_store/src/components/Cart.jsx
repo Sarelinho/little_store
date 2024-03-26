@@ -1,46 +1,67 @@
 // Cart.jsx
-import React, { useContext, useState ,useEffect} from "react";
+import React, { useContext, useState } from "react";
 import Header from "./Header";
 import { CartContext } from "../App";
-import ProductComponent from "./Product";
-import '/src/Style/Cart.css';
+import {ConfirmOrder} from "./ConfirmOrder";
+import "/src/Style/Cart.css";
 
 const Cart = () => {
   const cartContext = useContext(CartContext);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [confirmOrder, setConfirmOrderOpen] = useState(false)
+  const totalPrice = cartContext.cartProducts.reduce(
+    (acc, cur) => (acc += +cur.price),
+    0
+  );
 
-  const calculateTotalPrice = () => {
-    let total = 0;
-    cartContext.cartProducts.forEach((product) => {
-      total += parseFloat(product.price);
-    });
-    return total;
+  const handleRemove = (id) => {
+    cartContext.setCartProducts((prevProducts) =>
+      prevProducts.filter((prod) => prod.id !== id)
+    );
   };
 
-  
-  useEffect(() => {
-    const totalPrice = calculateTotalPrice();
-    setTotalPrice(totalPrice);
-  }, [cartContext.cartProducts]);
-
   return (
-    <div className="cart-container">
-    <Header />
     <div className="cart-content">
-      <h2>עגלת קניות</h2>
-      <div className="products-container">
-        {cartContext.cartProducts.map((product) => (
-          <ProductComponent key={product.code} product={product} isRemove={true} />
-        ))}
-      </div>
-    </div>     
-      <div className="total-price">
-<h3 >סכום כולל: {totalPrice} ש"ח</h3>
-<button>לביצוע הזמנה</button>
+      <Header />
+      <div className="cart-container">
+        <h2>עגלת קניות</h2>
+        <table className="products-table">
+          <thead>
+            <tr>
+              <th>הסרת המוצר</th>
+              <th>קוד</th>
+              <th>מחיר</th>
+              <th>תיאור</th>
+              <th>תמונה</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cartContext.cartProducts.map((product, i) => (
+              <tr key={`${product.code}-${i}`}>
+                <td id="removeButton" onClick={() => handleRemove(product.id)}>
+                  X
+                </td>
+                <td>{product.code}</td>
+                <td>{product.price}</td>
+                <td>{product.description}</td>
+                <td>
+                  <img
+                    src={product.image}
+                    alt={product.image}
+                    className="product_img"
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div className="total-price">
+          <h3>סכום כולל: {totalPrice} ש"ח</h3>
+          <button disabled={!cartContext?.cartProducts?.length} onClick={() => setConfirmOrderOpen(true)}>לביצוע הזמנה</button>
+        </div>
+        <ConfirmOrder totalPrice={totalPrice} open={confirmOrder}/>
       </div>
     </div>
-  
-);
+  );
 };
 
 export default Cart;

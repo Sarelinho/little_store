@@ -1,0 +1,43 @@
+.sidebar {
+    background-color: #f0f0f0;
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    left: 0%;
+    padding-top: 50px;
+  }
+  
+  .sidebar-button {
+    display: block;
+    padding: 10px 20px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .admin-content {
+    margin-left: 200px; /* כדי להתחשב ברוחב של הסרגל */
+    padding: 20px;
+  }
+  
+  .products-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* סדרת מוצרים בעמודה */
+    gap: 20px;
+  }
+  
+  .product-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .product-item > div {
+    margin-bottom: 5px;
+  }
+  
+  .product_img {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+  }
+  

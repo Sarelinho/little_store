@@ -2,7 +2,7 @@
 
 .app {
   text-align: center;
-  
+  position: relative;
 }
 
 .product {
@@ -24,4 +24,11 @@
 
 .product p {
   color: #666;
+}
+
+dialog, dialog[open] {
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+  top: 50%;
 }

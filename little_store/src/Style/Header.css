@@ -1,8 +1,12 @@
 /* styles.css */
 
 header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: #333; 
     padding: 10px 0; 
+    direction: rtl ;
 }
 
 nav ul {
@@ -24,4 +28,16 @@ nav ul li a {
 
 nav ul li a:hover {
     text-decoration: underline; 
+}
+.shopButton{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 200px;
+    height: 50px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
 }

@@ -7,6 +7,7 @@ import { createContext, useState } from "react";
 import {defaultProducts} from './defaultProducts'
 
 
+
 export const CartContext = createContext();
 export const ProductsContext = createContext();
 

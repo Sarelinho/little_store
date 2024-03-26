@@ -1,10 +1,11 @@
 import ProductComponent from "./Product";
 import Header from "./Header";
 import { useContext } from "react";
-import { ProductsContext } from "../App";
+import {ProductsContext} from '../App'
+
 
 export const Home = () => {
-  const appProducts = useContext(ProductsContext);
+  const appProducts = useContext(ProductsContext)
   return (
     <div>
       <Header />
